@@ -1,4 +1,4 @@
-package com.luv2.code.hibernate.demo.entity;
+package com.luv2code.hibernate.demo.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

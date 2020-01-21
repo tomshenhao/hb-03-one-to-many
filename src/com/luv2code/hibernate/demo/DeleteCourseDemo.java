@@ -1,14 +1,14 @@
-package com.luv2.code.hibernate.demo;
+package com.luv2code.hibernate.demo;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.luv2.code.hibernate.demo.entity.Course;
-import com.luv2.code.hibernate.demo.entity.Instructor;
-import com.luv2.code.hibernate.demo.entity.InstructorDetail;
+import com.luv2code.hibernate.demo.entity.Course;
+import com.luv2code.hibernate.demo.entity.Instructor;
+import com.luv2code.hibernate.demo.entity.InstructorDetail;
 
-public class GetInstructorCourseDemo {
+public class DeleteCourseDemo {
 	
 	public static void main(String args[]) {
 		
@@ -25,13 +25,14 @@ public class GetInstructorCourseDemo {
 			
 			session.beginTransaction();
 			
-			//get the instructor from db
-			int theId = 1;
-			Instructor tempInstructor = session.get(Instructor.class, theId);
-			System.out.println("Instructor: "+tempInstructor);
+			// get a course
+			int theId = 10;
+			Course tempCourse=session.get(Course.class, theId);
 			
-			//Retrieve the courses
-			System.out.println("Courses: "+tempInstructor.getCourses());
+			// delete course
+			System.out.println("Deleting course:..."+tempCourse);
+			
+			session.delete(tempCourse);
 			
 			session.getTransaction().commit();
 			System.out.println("Done!");
